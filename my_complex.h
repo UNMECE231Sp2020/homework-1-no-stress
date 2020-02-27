@@ -18,3 +18,10 @@ Complex complex_conj(Complex c);
 
 double magnitude(Complex c);
 double phase(Complex c);
+
+void handler(Complex (*func_ptr)(Complex, Complex),Complex d, Complex k);  
+void handler1(double (*func_ptr1)(Complex),Complex g); 
+
+/*
+ * def function_name():
+ */

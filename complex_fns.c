@@ -44,7 +44,22 @@ Complex complex_mult(Complex c1, Complex c2) {
 Complex complex_div(Complex c1, Complex c2) {
 	double denom = magnitude(c2)*magnitude(c2);
 	Complex c = complex_mult(c1, complex_conj(c2));
-	c.real /= denom;
-	c.imag /= denom;
-	return c;
+	if (denom != 0){
+		c.real /= denom;
+		c.imag /= denom;
+		return c;
+	}
+	else {
+		printf("no division by 0!");
+		c.real = 0;
+		c.imag = 0;
+		return c;
+	}
+}
+void handler(Complex (*func_ptr)(Complex, Complex),Complex d, Complex k){
+	print_complex(func_ptr(d,k));
+}
+
+void handler1(double (*func_ptr1)(Complex),Complex g) {
+	printf("%.3lf", func_ptr1(g));
 }
